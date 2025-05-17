@@ -1,4 +1,3 @@
-import { useInView } from 'react-intersection-observer';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
