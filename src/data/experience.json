@@ -1,0 +1,28 @@
+{
+  "experience": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "Mico",
+      "period": "2023 - Present",
+      "description": "Leading the development of AI-powered solutions and microservices architecture.",
+      "technologies": ["Python", "React", "FastAPI", "PostgreSQL", "Docker"],
+      "achievements": [
+        "Architected and implemented microservices-based authentication system",
+        "Developed AI-powered personal assistant with natural language processing",
+        "Led team of 5 developers in implementing CI/CD pipelines"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Previous Company",
+      "period": "2021 - 2023",
+      "description": "Full-stack development of web applications and RESTful APIs.",
+      "technologies": ["Node.js", "React", "MongoDB", "AWS"],
+      "achievements": [
+        "Built scalable RESTful APIs serving 1M+ requests daily",
+        "Implemented real-time features using WebSocket",
+        "Reduced API response time by 40% through optimization"
+      ]
+    }
+  ]
+}

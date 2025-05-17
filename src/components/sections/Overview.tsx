@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiTwitter } from 'react-icons/fi';
+import overviewData from '@/data/overview.json';
 
 interface SocialLink {
   icon: React.ReactNode;
@@ -10,25 +11,30 @@ interface SocialLink {
   label: string;
 }
 
-const socialLinks: SocialLink[] = [
-  {
-    icon: <FiGithub className="w-6 h-6" />,
-    href: 'https://github.com/yourusername',
-    label: 'GitHub',
-  },
-  {
-    icon: <FiLinkedin className="w-6 h-6" />,
-    href: 'https://linkedin.com/in/yourusername',
-    label: 'LinkedIn',
-  },
-  {
-    icon: <FiMail className="w-6 h-6" />,
-    href: 'mailto:your.email@example.com',
-    label: 'Email',
-  },
-];
-
 const Overview = () => {
+  const socialLinks: SocialLink[] = [
+    {
+      icon: <FiGithub className="w-6 h-6" />,
+      href: overviewData.contact.github,
+      label: 'GitHub',
+    },
+    {
+      icon: <FiLinkedin className="w-6 h-6" />,
+      href: overviewData.contact.linkedin,
+      label: 'LinkedIn',
+    },
+    {
+      icon: <FiTwitter className="w-6 h-6" />,
+      href: overviewData.contact.twitter,
+      label: 'Twitter',
+    },
+    {
+      icon: <FiMail className="w-6 h-6" />,
+      href: `mailto:${overviewData.contact.email}`,
+      label: 'Email',
+    },
+  ];
+
   return (
     <section className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
       {/* Background gradient effect */}
@@ -50,7 +56,7 @@ const Overview = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-xl opacity-50" />
               <div className="relative w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
-                <span className="text-4xl font-bold text-white">YP</span>
+                <span className="text-4xl font-bold text-white">{overviewData.name.split(' ').map(n => n[0]).join('')}</span>
               </div>
             </div>
           </motion.div>
@@ -61,7 +67,7 @@ const Overview = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent"
           >
-            Your Name
+            {overviewData.name}
           </motion.h1>
 
           <motion.h2
@@ -70,7 +76,7 @@ const Overview = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-2xl text-white/80 mb-8"
           >
-            Full Stack Developer
+            {overviewData.title}
           </motion.h2>
 
           <motion.p
@@ -79,8 +85,7 @@ const Overview = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-lg text-white/60 max-w-2xl mx-auto mb-12"
           >
-            A passionate developer with expertise in building modern web applications.
-            Specializing in React, Next.js, and full-stack development.
+            {overviewData.bio}
           </motion.p>
 
           <motion.div

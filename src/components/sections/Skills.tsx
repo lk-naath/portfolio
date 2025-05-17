@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Skills from '../Skills';
+import skillsData from '@/data/skills.json';
 
 type SkillCategory = 'frontend' | 'backend' | 'database' | 'devops' | 'tools' | 'other';
 
@@ -13,74 +14,8 @@ interface Skill {
   description: string;
 }
 
-const skills: Skill[] = [
-  {
-    name: "React",
-    level: 95,
-    category: "frontend",
-    color: "#61DAFB",
-    description: "Expert in React ecosystem including hooks, context, and performance optimization"
-  },
-  {
-    name: "TypeScript",
-    level: 90,
-    category: "frontend",
-    color: "#3178C6",
-    description: "Strong typing and advanced TypeScript features for robust applications"
-  },
-  {
-    name: "Node.js",
-    level: 90,
-    category: "backend",
-    color: "#339933",
-    description: "Proficient in building scalable backend services and RESTful APIs"
-  },
-  {
-    name: "PostgreSQL",
-    level: 85,
-    category: "database",
-    color: "#336791",
-    description: "Experience in database design, optimization, and complex queries"
-  },
-  {
-    name: "Docker",
-    level: 85,
-    category: "devops",
-    color: "#2496ED",
-    description: "Containerization and microservices architecture implementation"
-  },
-  {
-    name: "AWS",
-    level: 80,
-    category: "devops",
-    color: "#FF9900",
-    description: "Cloud infrastructure and services deployment"
-  },
-  {
-    name: "Git",
-    level: 95,
-    category: "tools",
-    color: "#F05032",
-    description: "Advanced version control and collaboration workflows"
-  },
-  {
-    name: "Next.js",
-    level: 90,
-    category: "frontend",
-    color: "#000000",
-    description: "Full-stack React framework for production applications"
-  },
-  {
-    name: "MongoDB",
-    level: 85,
-    category: "database",
-    color: "#47A248",
-    description: "NoSQL database design and optimization"
-  }
-];
-
 const SkillsSection: React.FC = () => {
-  return <Skills skills={skills} />;
+  return <Skills skills={skillsData.skills as Skill[]} />;
 };
 
 export default SkillsSection;

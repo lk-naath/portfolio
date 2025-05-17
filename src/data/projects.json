@@ -1,0 +1,25 @@
+{
+  "projects": [
+    {
+      "title": "Mico AI",
+      "description": "An AI-powered personal assistant that helps users manage their daily tasks and improve productivity.",
+      "technologies": ["Python", "React", "FastAPI", "PostgreSQL"],
+      "link": "https://github.com/yourusername/micoai",
+      "image": "/images/projects/micoai.png"
+    },
+    {
+      "title": "Mico Auth",
+      "description": "A secure authentication system with multi-factor authentication and role-based access control.",
+      "technologies": ["Node.js", "Express", "MongoDB", "JWT"],
+      "link": "https://github.com/yourusername/micoauth",
+      "image": "/images/projects/micoauth.png"
+    },
+    {
+      "title": "Mico Agent",
+      "description": "An intelligent agent system that automates complex workflows and decision-making processes.",
+      "technologies": ["Python", "TensorFlow", "Docker", "Redis"],
+      "link": "https://github.com/yourusername/micoagent",
+      "image": "/images/projects/micoagent.png"
+    }
+  ]
+}
