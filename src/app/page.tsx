@@ -5,7 +5,6 @@ import RootLayout from '@/components/layout/RootLayout';
 import Overview from '@/components/sections/Overview';
 import Skills from '@/components/sections/Skills';
 import Experience from '@/components/sections/Experience';
-import Contact from '@/components/sections/Contact';
 import AnimatedSection from '@/components/AnimatedSection';
 
 export default function Home() {
@@ -27,10 +26,6 @@ export default function Home() {
 
           <AnimatedSection direction="up">
             <Experience />
-          </AnimatedSection>
-
-          <AnimatedSection direction="up">
-            <Contact />
           </AnimatedSection>
 
           {/* Floating elements */}
