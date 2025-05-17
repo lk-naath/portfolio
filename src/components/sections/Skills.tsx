@@ -1,44 +1,90 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import SkillsSphere from '../3d/SkillsSphere';
+import Skills from '../Skills';
 
-const Skills = () => {
-  // Example skills - replace with your actual skills
-  const skills = [
-    { name: 'React', level: 5 },
-    { name: 'Next.js', level: 5 },
-    { name: 'TypeScript', level: 4 },
-    { name: 'Node.js', level: 4 },
-    { name: 'Python', level: 4 },
-    { name: 'SQL', level: 4 },
-    { name: 'AWS', level: 3 },
-    { name: 'Docker', level: 3 },
-  ];
+type SkillCategory = 'frontend' | 'backend' | 'database' | 'devops' | 'tools' | 'other';
 
+interface Skill {
+  name: string;
+  level: number;
+  category: SkillCategory;
+  color: string;
+  description: string;
+}
+
+const skills: Skill[] = [
+  {
+    name: "React",
+    level: 95,
+    category: "frontend",
+    color: "#61DAFB",
+    description: "Expert in React ecosystem including hooks, context, and performance optimization"
+  },
+  {
+    name: "TypeScript",
+    level: 90,
+    category: "frontend",
+    color: "#3178C6",
+    description: "Strong typing and advanced TypeScript features for robust applications"
+  },
+  {
+    name: "Node.js",
+    level: 90,
+    category: "backend",
+    color: "#339933",
+    description: "Proficient in building scalable backend services and RESTful APIs"
+  },
+  {
+    name: "PostgreSQL",
+    level: 85,
+    category: "database",
+    color: "#336791",
+    description: "Experience in database design, optimization, and complex queries"
+  },
+  {
+    name: "Docker",
+    level: 85,
+    category: "devops",
+    color: "#2496ED",
+    description: "Containerization and microservices architecture implementation"
+  },
+  {
+    name: "AWS",
+    level: 80,
+    category: "devops",
+    color: "#FF9900",
+    description: "Cloud infrastructure and services deployment"
+  },
+  {
+    name: "Git",
+    level: 95,
+    category: "tools",
+    color: "#F05032",
+    description: "Advanced version control and collaboration workflows"
+  },
+  {
+    name: "Next.js",
+    level: 90,
+    category: "frontend",
+    color: "#000000",
+    description: "Full-stack React framework for production applications"
+  },
+  {
+    name: "MongoDB",
+    level: 85,
+    category: "database",
+    color: "#47A248",
+    description: "NoSQL database design and optimization"
+  }
+];
+
+const SkillsSection: React.FC = () => {
   return (
-    <section id="skills" className="min-h-screen py-20">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold mb-4">Skills</h2>
-          <p className="text-accent-light">
-            Interactive 3D visualization of my technical skills
-          </p>
-        </motion.div>
-        
-        <div className="relative">
-          <SkillsSphere skills={skills} />
-        </div>
-      </div>
+    <section id="skills" className="relative">
+      <Skills skills={skills} />
     </section>
   );
 };
 
-export default Skills; 
+export default SkillsSection;
