@@ -6,66 +6,67 @@
     "devops": "DevOps",
     "tools": "Tools"
   },
+  "range": 5,
   "skills": [
     {
       "name": "React",
-      "level": 95,
+      "years": 4,
       "category": "frontend",
       "color": "#61DAFB",
       "description": "Expert in React ecosystem including hooks, context, and performance optimization"
     },
     {
       "name": "TypeScript",
-      "level": 90,
+      "years": 3,
       "category": "frontend",
       "color": "#3178C6",
       "description": "Strong typing and advanced TypeScript features for robust applications"
     },
     {
       "name": "Node.js",
-      "level": 90,
+      "years": 3,
       "category": "backend",
       "color": "#339933",
       "description": "Proficient in building scalable backend services and RESTful APIs"
     },
     {
       "name": "PostgreSQL",
-      "level": 85,
+      "years": 2.5,
       "category": "database",
       "color": "#336791",
       "description": "Experience in database design, optimization, and complex queries"
     },
     {
       "name": "Docker",
-      "level": 85,
+      "years": 2.5,
       "category": "devops",
       "color": "#2496ED",
       "description": "Containerization and microservices architecture implementation"
     },
     {
       "name": "AWS",
-      "level": 80,
+      "years": 2,
       "category": "devops",
       "color": "#FF9900",
       "description": "Cloud infrastructure and services deployment"
     },
     {
       "name": "Git",
-      "level": 95,
+      "years": 4,
       "category": "tools",
       "color": "#F05032",
       "description": "Advanced version control and collaboration workflows"
     },
     {
       "name": "Next.js",
-      "level": 90,
+      "years": 3,
       "category": "frontend",
       "color": "#000000",
       "description": "Full-stack React framework for production applications"
     },
     {
       "name": "MongoDB",
-      "level": 85,
+      "years": 2.5,
       "category": "database",
       "color": "#47A248",
       "description": "NoSQL database design and optimization"

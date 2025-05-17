@@ -6,7 +6,7 @@ import { FiCode, FiDatabase, FiLayers, FiServer, FiTool, FiMonitor } from 'react
 
 interface Skill {
   name: string;
-  level: number;
+  years: number;
   category: string;
   icon?: React.ReactNode;
   color?: string;
@@ -16,6 +16,7 @@ interface Skill {
 interface SkillsProps {
   skills: Skill[];
   categories: Record<string, string>;
+  range: number;
 }
 
 const categoryIcons = {
@@ -27,7 +28,7 @@ const categoryIcons = {
   other: <FiMonitor className="w-6 h-6" />,
 };
 
-const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) => {
+const SkillCard: React.FC<{ skill: Skill; index: number; range: number }> = ({ skill, index, range }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -50,13 +51,13 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
               {skill.name}
             </h3>
           </div>
-          <span className="text-sm font-medium text-white/60">{skill.level}%</span>
+          <span className="text-sm font-medium text-white/60">{skill.years} years</span>
         </div>
 
         <div className="relative w-full h-2 bg-white/10 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: `${skill.level}%` }}
+            animate={{ width: `${(skill.years / range) * 100}%` }}
             transition={{ duration: 1, delay: index * 0.1 }}
             className="absolute inset-y-0 left-0 h-full rounded-full"
             style={{
@@ -82,7 +83,7 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
   );
 };
 
-const Skills: React.FC<SkillsProps> = ({ skills, categories }) => {
+const Skills: React.FC<SkillsProps> = ({ skills, categories, range }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const categoryList = ['all', ...Object.keys(categories)];
@@ -142,7 +143,7 @@ const Skills: React.FC<SkillsProps> = ({ skills, categories }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, index) => (
-            <SkillCard key={skill.name} skill={skill} index={index} />
+            <SkillCard key={skill.name} skill={skill} index={index} range={range} />
           ))}
         </div>
       </motion.div>
