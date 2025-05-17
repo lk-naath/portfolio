@@ -1,0 +1,13 @@
+{
+  "name": "Your Name",
+  "title": "Senior Software Engineer",
+  "summary": "Full-stack developer with expertise in building scalable applications and microservices. Passionate about AI and cloud technologies.",
+  "contact": {
+    "email": "your.email@example.com",
+    "github": "https://github.com/yourusername",
+    "linkedin": "https://linkedin.com/in/yourusername",
+    "twitter": "https://twitter.com/yourusername"
+  },
+  "location": "Your Location",
+  "bio": "I'm a software engineer with a passion for building innovative solutions. With expertise in both frontend and backend development, I specialize in creating scalable applications that solve real-world problems. My current focus is on AI-powered applications and microservices architecture."
+}

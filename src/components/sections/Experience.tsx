@@ -3,14 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiBriefcase, FiCalendar, FiMapPin, FiChevronRight, FiAward, FiCode } from 'react-icons/fi';
+import experienceData from '@/data/experience.json';
 
 interface Experience {
   title: string;
   company: string;
-  location: string;
   period: string;
-  summary: string;
-  responsibilities: string[];
+  description: string;
+  technologies: string[];
   achievements: string[];
 }
 
@@ -45,43 +45,6 @@ const Experience = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  const experiences: Experience[] = [
-    {
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Company',
-      location: 'San Francisco, CA',
-      period: '2021 - Present',
-      summary: 'Leading the development of enterprise-scale applications while mentoring junior developers and implementing best practices.',
-      responsibilities: [
-        'Led development of multiple web applications using React and Node.js',
-        'Implemented CI/CD pipelines and improved deployment processes',
-        'Mentored junior developers and conducted code reviews',
-      ],
-      achievements: [
-        'Reduced deployment time by 60% through CI/CD optimization',
-        'Led a team of 5 developers to deliver 3 major projects',
-        'Achieved 99.9% uptime for critical services'
-      ]
-    },
-    {
-      title: 'Full Stack Developer',
-      company: 'Startup Inc',
-      location: 'New York, NY',
-      period: '2019 - 2021',
-      summary: 'Developed and maintained multiple client projects while collaborating with cross-functional teams to deliver high-quality solutions.',
-      responsibilities: [
-        'Developed and maintained multiple client projects',
-        'Worked with various technologies including React, Node.js, and Python',
-        'Collaborated with design team to implement responsive UIs',
-      ],
-      achievements: [
-        'Increased user engagement by 40% through UI/UX improvements',
-        'Optimized database queries resulting in 50% faster load times',
-        'Successfully migrated legacy systems to modern architecture'
-      ]
-    },
-  ];
 
   const getCardTransform = () => {
     if (dimensions.width === 0 || dimensions.height === 0) return '';
@@ -151,7 +114,7 @@ const Experience = () => {
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/50 to-blue-500/50" />
 
           <div className="space-y-24">
-            {experiences.map((exp, index) => (
+            {experienceData.experience.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -188,87 +151,45 @@ const Experience = () => {
                             <span>{exp.company}</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <FiMapPin className="w-4 h-4" />
-                            <span>{exp.location}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
                             <FiCalendar className="w-4 h-4" />
                             <span>{exp.period}</span>
                           </div>
                         </div>
                         <p className="text-white/80 text-lg">
-                          {exp.summary}
+                          {exp.description}
                         </p>
                       </div>
 
-                      <AnimatePresence>
-                        {activeIndex === index && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="grid md:grid-cols-2 gap-8 pt-6 border-t border-white/10">
-                              <div>
-                                <h4 className="text-lg font-semibold text-white/90 mb-3 flex items-center gap-2">
-                                  <FiCode className="w-4 h-4 text-purple-400" />
-                                  Key Responsibilities
-                                </h4>
-                                <ul className="space-y-3">
-                                  {exp.responsibilities.map((item, i) => (
-                                    <motion.li
-                                      key={i}
-                                      initial={{ opacity: 0, x: -20 }}
-                                      animate={{ opacity: 1, x: 0 }}
-                                      transition={{ duration: 0.5, delay: i * 0.1 }}
-                                      className="flex items-start gap-3 text-white/80"
-                                    >
-                                      <span className="text-purple-400 mt-1">•</span>
-                                      <span>{item}</span>
-                                    </motion.li>
-                                  ))}
-                                </ul>
-                              </div>
+                      <div className="space-y-4">
+                        <div>
+                          <h4 className="text-white/90 font-semibold mb-2">Technologies</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {exp.technologies.map((tech, techIndex) => (
+                              <span
+                                key={techIndex}
+                                className="px-3 py-1 text-sm bg-white/10 text-white/80 rounded-full"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
 
-                              <div>
-                                <h4 className="text-lg font-semibold text-white/90 mb-3 flex items-center gap-2">
-                                  <FiAward className="w-4 h-4 text-yellow-400" />
-                                  Key Achievements
-                                </h4>
-                                <ul className="space-y-3">
-                                  {exp.achievements.map((achievement, i) => (
-                                    <motion.li
-                                      key={i}
-                                      initial={{ opacity: 0, x: -20 }}
-                                      animate={{ opacity: 1, x: 0 }}
-                                      transition={{ duration: 0.5, delay: i * 0.1 }}
-                                      className="flex items-start gap-3 text-white/80"
-                                    >
-                                      <span className="text-yellow-400 mt-1">★</span>
-                                      <span>{achievement}</span>
-                                    </motion.li>
-                                  ))}
-                                </ul>
-                              </div>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-
-                      <motion.div
-                        className="absolute bottom-4 right-4 text-white/60"
-                        animate={{
-                          x: activeIndex === index ? [0, 5, 0] : 0
-                        }}
-                        transition={{
-                          duration: 1,
-                          repeat: activeIndex === index ? Infinity : 0
-                        }}
-                      >
-                        <FiChevronRight className="w-6 h-6" />
-                      </motion.div>
+                        <div>
+                          <h4 className="text-white/90 font-semibold mb-2">Key Achievements</h4>
+                          <ul className="space-y-2">
+                            {exp.achievements.map((achievement, achievementIndex) => (
+                              <li
+                                key={achievementIndex}
+                                className="flex items-start gap-2 text-white/70"
+                              >
+                                <FiChevronRight className="w-4 h-4 mt-1 text-purple-400" />
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 </div>
