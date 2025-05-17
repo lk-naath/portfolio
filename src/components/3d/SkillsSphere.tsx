@@ -3,7 +3,8 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Sphere } from '@react-three/drei';
-import { motion } from 'framer-motion-3d';
+import { motion } from 'framer-motion';
+import * as THREE from 'three';
 
 interface Skill {
   name: string;
@@ -25,11 +26,9 @@ const SkillPoint: React.FC<{ position: [number, number, number]; skill: Skill }>
   });
 
   return (
-    <motion.mesh
+    <mesh
       ref={ref}
       position={position}
-      whileHover={{ scale: 1.2 }}
-      transition={{ type: 'spring', stiffness: 300 }}
     >
       <Sphere args={[0.1, 16, 16]}>
         <meshStandardMaterial color="#4a4a4a" />
@@ -43,7 +42,7 @@ const SkillPoint: React.FC<{ position: [number, number, number]; skill: Skill }>
       >
         {skill.name}
       </Text>
-    </motion.mesh>
+    </mesh>
   );
 };
 
@@ -52,7 +51,7 @@ const SkillsSphere: React.FC<SkillsSphereProps> = ({ skills }) => {
   const positions = skills.map((_, index) => {
     const phi = Math.acos(-1 + (2 * index) / skills.length);
     const theta = Math.sqrt(skills.length * Math.PI) * phi;
-    
+
     return [
       radius * Math.cos(theta) * Math.sin(phi),
       radius * Math.sin(theta) * Math.sin(phi),
@@ -61,7 +60,12 @@ const SkillsSphere: React.FC<SkillsSphereProps> = ({ skills }) => {
   });
 
   return (
-    <div className="h-[500px] w-full">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="h-[500px] w-full"
+    >
       <Canvas camera={{ position: [0, 0, 5] }}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
@@ -73,8 +77,8 @@ const SkillsSphere: React.FC<SkillsSphereProps> = ({ skills }) => {
           />
         ))}
       </Canvas>
-    </div>
+    </motion.div>
   );
 };
 
-export default SkillsSphere; 
+export default SkillsSphere;
