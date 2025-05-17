@@ -15,7 +15,11 @@ interface Skill {
 }
 
 const SkillsSection: React.FC = () => {
-  return <Skills skills={skillsData.skills as Skill[]} categories={skillsData.categories} range={skillsData.range} />;
+  return (
+    <section id="skills" className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative">
+      <Skills skills={skillsData.skills as Skill[]} categories={skillsData.categories} range={skillsData.range} />
+    </section>
+  );
 };
 
 export default SkillsSection;
