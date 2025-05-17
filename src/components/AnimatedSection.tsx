@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { fadeIn } from '@/utils/animations';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -20,16 +18,28 @@ const AnimatedSection = ({
     threshold: 0.1,
   });
 
+  const getAnimationClass = () => {
+    switch (direction) {
+      case 'up':
+        return 'animate-fade-in-up';
+      case 'down':
+        return 'animate-fade-in-down';
+      case 'left':
+        return 'animate-fade-in-left';
+      case 'right':
+        return 'animate-fade-in-right';
+      default:
+        return 'animate-fade-in-up';
+    }
+  };
+
   return (
-    <motion.div
+    <div
       ref={ref}
-      variants={fadeIn(direction, delay)}
-      initial="hidden"
-      animate={inView ? 'show' : 'hidden'}
-      className={className}
+      className={`${getAnimationClass()} ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
