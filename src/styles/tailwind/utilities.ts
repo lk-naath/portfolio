@@ -1,5 +1,8 @@
 import type { Config } from 'tailwindcss';
 
+type CSSValue = string | Record<string, string>;
+type CSSProperties = Record<string, CSSValue>;
+
 export const utilitiesConfig: Partial<Config> = {
   theme: {
     extend: {
@@ -19,7 +22,7 @@ export const utilitiesConfig: Partial<Config> = {
     },
   },
   plugins: [
-    function({ addUtilities }: { addUtilities: Function }) {
+    function({ addUtilities }: { addUtilities: (utilities: Record<string, CSSProperties>) => void }) {
       addUtilities({
         '.scrollbar-hide': {
           '-ms-overflow-style': 'none',

@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiBriefcase, FiCalendar, FiMapPin, FiChevronRight, FiAward, FiCode } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { FiBriefcase, FiCalendar, FiChevronRight, FiAward } from 'react-icons/fi';
 import experienceData from '@/data/experience.json';
 
 interface Experience {
@@ -124,7 +124,7 @@ const Experience = () => {
                 className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500" />
+                <div className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 ${activeIndex === index ? 'scale-150 ring-4 ring-purple-500/30' : ''}`} />
 
                 {/* Content */}
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12' : 'pl-12'}`}>
@@ -137,8 +137,8 @@ const Experience = () => {
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-                    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-300">
+                    <div className={`absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 ${activeIndex === index ? 'opacity-100' : 'opacity-50'}`} />
+                    <div className={`relative bg-white/5 backdrop-blur-xl rounded-2xl p-8 border transition-all duration-300 ${activeIndex === index ? 'border-white/30' : 'border-white/10 hover:border-white/20'}`}>
                       <div className="mb-6">
                         <motion.h3
                           className="text-2xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-2"
