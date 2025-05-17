@@ -32,7 +32,7 @@ const Navbar = () => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-accent transition-colors duration-300"
+                className="font-medium bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent hover:from-purple-500 hover:to-blue-600 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
