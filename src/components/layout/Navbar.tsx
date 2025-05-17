@@ -17,7 +17,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       className="fixed top-0 w-full bg-primary-light/80 backdrop-blur-sm z-50"
     >
-      <div className="container mx-auto px-4">
+      <div className="w-full px-6">
         <div className="flex items-center justify-between h-16">
           <motion.div
             initial={{ opacity: 0 }}
@@ -26,7 +26,7 @@ const Navbar = () => {
           >
             Portfolio
           </motion.div>
-          
+
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <motion.a
@@ -46,4 +46,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;

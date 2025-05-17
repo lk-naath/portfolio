@@ -36,8 +36,8 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="min-h-screen py-20">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="min-h-screen w-full py-20 bg-gradient-to-b from-black to-gray-900">
+      <div className="w-full max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,4 +78,4 @@ const Experience = () => {
   );
 };
 
-export default Experience; 
+export default Experience;
