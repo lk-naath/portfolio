@@ -17,19 +17,19 @@ export default function Home() {
           <div className="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
 
           {/* Animated sections */}
-          <AnimatedSection direction="up" delay={0.2}>
+          <AnimatedSection direction="up">
             <Overview />
           </AnimatedSection>
 
-          <AnimatedSection direction="up" delay={0.3}>
+          <AnimatedSection direction="up">
             <Skills />
           </AnimatedSection>
 
-          <AnimatedSection direction="up" delay={0.4}>
+          <AnimatedSection direction="up">
             <Experience />
           </AnimatedSection>
 
-          <AnimatedSection direction="up" delay={0.5}>
+          <AnimatedSection direction="up">
             <Contact />
           </AnimatedSection>
 
