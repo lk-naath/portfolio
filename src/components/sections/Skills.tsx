@@ -80,11 +80,7 @@ const skills: Skill[] = [
 ];
 
 const SkillsSection: React.FC = () => {
-  return (
-    <section id="skills" className="relative">
-      <Skills skills={skills} />
-    </section>
-  );
+  return <Skills skills={skills} />;
 };
 
 export default SkillsSection;
