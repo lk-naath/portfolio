@@ -17,14 +17,33 @@ interface Experience {
 const Experience = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+    // Set initial dimensions
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
+    const handleResize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const experiences: Experience[] = [
@@ -63,6 +82,11 @@ const Experience = () => {
       ]
     },
   ];
+
+  const getCardTransform = () => {
+    if (dimensions.width === 0 || dimensions.height === 0) return '';
+    return `perspective(1000px) rotateX(${(mousePosition.y - dimensions.height / 2) * 0.01}deg) rotateY(${(mousePosition.x - dimensions.width / 2) * 0.01}deg)`;
+  };
 
   return (
     <section id="experience" className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
@@ -146,7 +170,7 @@ const Experience = () => {
                     onClick={() => setActiveIndex(index)}
                     whileHover={{ scale: 1.02 }}
                     style={{
-                      transform: `perspective(1000px) rotateX(${(mousePosition.y - window.innerHeight / 2) * 0.01}deg) rotateY(${(mousePosition.x - window.innerWidth / 2) * 0.01}deg)`,
+                      transform: getCardTransform(),
                       transition: 'transform 0.1s ease-out'
                     }}
                   >
