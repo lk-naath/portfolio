@@ -1,4 +1,11 @@
 {
+  "categories": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "devops": "DevOps",
+    "tools": "Tools"
+  },
   "skills": [
     {
       "name": "React",
