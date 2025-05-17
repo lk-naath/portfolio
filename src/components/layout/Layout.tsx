@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-primary text-white">
       <Navbar />
-      <main className="container mx-auto px-4 py-8">
+      <main className="w-full px-6 py-8">
         {children}
       </main>
       <Footer />
@@ -18,4 +18,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-export default Layout; 
+export default Layout;
