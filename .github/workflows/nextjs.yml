@@ -34,10 +34,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Copy CNAME
-        run: |
-          cp public/CNAME out/CNAME
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
