@@ -91,12 +91,13 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
     : skills.filter(skill => skill.category === activeCategory);
 
   return (
-    <section className="min-h-screen w-full py-20 bg-gradient-to-b from-black to-gray-900">
+    <section className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 blur-3xl" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-7xl mx-auto px-6"
+        className="w-full max-w-7xl mx-auto px-6 relative z-10"
       >
         <div className="text-center mb-16">
           <motion.h2
