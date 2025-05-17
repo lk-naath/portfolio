@@ -4,7 +4,7 @@ import React from 'react';
 import Skills from '../Skills';
 import skillsData from '@/data/skills.json';
 
-type SkillCategory = 'frontend' | 'backend' | 'database' | 'devops' | 'tools' | 'other';
+type SkillCategory = keyof typeof skillsData.categories;
 
 interface Skill {
   name: string;
@@ -15,7 +15,7 @@ interface Skill {
 }
 
 const SkillsSection: React.FC = () => {
-  return <Skills skills={skillsData.skills as Skill[]} />;
+  return <Skills skills={skillsData.skills as Skill[]} categories={skillsData.categories} />;
 };
 
 export default SkillsSection;

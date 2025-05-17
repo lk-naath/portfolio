@@ -7,7 +7,7 @@ import { FiCode, FiDatabase, FiLayers, FiServer, FiTool, FiMonitor } from 'react
 interface Skill {
   name: string;
   level: number;
-  category: 'frontend' | 'backend' | 'database' | 'devops' | 'tools' | 'other';
+  category: string;
   icon?: React.ReactNode;
   color?: string;
   description?: string;
@@ -15,6 +15,7 @@ interface Skill {
 
 interface SkillsProps {
   skills: Skill[];
+  categories: Record<string, string>;
 }
 
 const categoryIcons = {
@@ -43,7 +44,7 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-white/10">
-              {skill.icon || categoryIcons[skill.category]}
+              {skill.icon || categoryIcons[skill.category as keyof typeof categoryIcons]}
             </div>
             <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               {skill.name}
@@ -81,10 +82,10 @@ const SkillCard: React.FC<{ skill: Skill; index: number }> = ({ skill, index }) 
   );
 };
 
-const Skills: React.FC<SkillsProps> = ({ skills }) => {
+const Skills: React.FC<SkillsProps> = ({ skills, categories }) => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
-  const categories = ['all', ...new Set(skills.map(skill => skill.category))];
+  const categoryList = ['all', ...Object.keys(categories)];
 
   const filteredSkills = activeCategory === 'all'
     ? skills
@@ -124,7 +125,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
-          {categories.map((category) => (
+          {categoryList.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -134,7 +135,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
                   : 'bg-white/5 text-white/60 hover:bg-white/10'
               }`}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category === 'all' ? 'All Skills' : categories[category]}
             </button>
           ))}
         </motion.div>
