@@ -5,7 +5,6 @@ import RootLayout from '@/components/layout/RootLayout';
 import Overview from '@/components/sections/Overview';
 import Skills from '@/components/sections/Skills';
 import Experience from '@/components/sections/Experience';
-import Projects from '@/components/sections/Projects';
 import AnimatedSection from '@/components/AnimatedSection';
 
 export default function Home() {
@@ -28,10 +27,6 @@ export default function Home() {
           <AnimatedSection direction="up">
             <Experience />
           </AnimatedSection>
-
-          {/* <AnimatedSection direction="up">
-            <Projects />
-          </AnimatedSection> */}
 
           {/* Floating elements */}
           <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden">

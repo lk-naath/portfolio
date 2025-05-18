@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiDownload, FiTwitter, FiCode, FiUsers, FiLayers, FiClock } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiCode, FiUsers, FiLayers, FiClock } from 'react-icons/fi';
 import overviewData from '@/data/overview.json';
 
 interface SocialLink {
