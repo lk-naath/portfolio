@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiCalendar, FiChevronRight, FiAward } from 'react-icons/fi';
+import { FiBriefcase, FiCalendar, FiChevronRight, FiAward, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import experienceData from '@/data/experience.json';
 
 interface Experience {
@@ -18,6 +18,7 @@ const Experience = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [expandedAchievements, setExpandedAchievements] = useState<number[]>([]);
 
   useEffect(() => {
     // Set initial dimensions
@@ -49,6 +50,14 @@ const Experience = () => {
   const getCardTransform = () => {
     if (dimensions.width === 0 || dimensions.height === 0) return '';
     return `perspective(1000px) rotateX(${(mousePosition.y - dimensions.height / 2) * 0.01}deg) rotateY(${(mousePosition.x - dimensions.width / 2) * 0.01}deg)`;
+  };
+
+  const toggleAchievements = (index: number) => {
+    setExpandedAchievements(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
   };
 
   return (
@@ -176,18 +185,50 @@ const Experience = () => {
                         </div>
 
                         <div>
-                          <h4 className="text-white/90 font-semibold mb-2">Key Achievements</h4>
-                          <ul className="space-y-2">
-                            {exp.achievements.map((achievement, achievementIndex) => (
-                              <li
-                                key={achievementIndex}
-                                className="flex items-start gap-2 text-white/70"
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="text-white/90 font-semibold">Key Achievements</h4>
+                            <motion.button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleAchievements(index);
+                              }}
+                              className="relative w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300 flex items-center justify-center group"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <motion.div
+                                animate={{
+                                  rotate: expandedAchievements.includes(index) ? 180 : 0
+                                }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                className="text-white/80 group-hover:text-white"
                               >
-                                <FiChevronRight className="w-4 h-4 mt-1 text-purple-400" />
-                                <span>{achievement}</span>
-                              </li>
-                            ))}
-                          </ul>
+                                <FiChevronDown className="w-5 h-5" />
+                              </motion.div>
+                              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </motion.button>
+                          </div>
+                          <motion.div
+                            initial={false}
+                            animate={{
+                              height: expandedAchievements.includes(index) ? 'auto' : 0,
+                              opacity: expandedAchievements.includes(index) ? 1 : 0
+                            }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden"
+                          >
+                            <ul className="space-y-2">
+                              {exp.achievements.map((achievement, achievementIndex) => (
+                                <li
+                                  key={achievementIndex}
+                                  className="flex items-start gap-2 text-white/70"
+                                >
+                                  <FiChevronRight className="w-4 h-4 mt-1 text-purple-400" />
+                                  <span>{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </motion.div>
                         </div>
                       </div>
                     </div>
