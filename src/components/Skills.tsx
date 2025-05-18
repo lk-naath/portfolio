@@ -47,11 +47,11 @@ const SkillCard: React.FC<{ skill: Skill; index: number; range: number }> = ({ s
             <div className="p-2 rounded-lg bg-white/10">
               {skill.icon || categoryIcons[skill.category as keyof typeof categoryIcons]}
             </div>
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <h3 className="text-xl font-semibold text-gradient">
               {skill.name}
             </h3>
           </div>
-          <span className="text-sm font-medium text-white/60">{skill.years} years</span>
+          <span className="text-sm font-medium text-accent">{skill.years} years</span>
         </div>
 
         <div className="relative w-full h-2 bg-white/10 rounded-full overflow-hidden">
@@ -72,7 +72,7 @@ const SkillCard: React.FC<{ skill: Skill; index: number; range: number }> = ({ s
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="mt-4 text-sm text-white/60"
+              className="mt-4 text-sm text-secondary"
             >
               {skill.description}
             </motion.p>
@@ -114,32 +114,29 @@ const Skills: React.FC<SkillsProps> = ({ skills, categories, range }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-white/60 text-lg max-w-2xl mx-auto"
+            className="text-secondary text-lg max-w-2xl mx-auto"
           >
             A comprehensive showcase of my technical skills and expertise, refined through years of professional experience
           </motion.p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categoryList.map((category) => (
-            <button
+            <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
-                  ? 'bg-white text-black'
-                  : 'bg-white/5 text-white/60 hover:bg-white/10'
+                  ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
+                  : 'bg-white/5 text-secondary hover:bg-white/10'
               }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               {category === 'all' ? 'All Skills' : categories[category]}
-            </button>
+            </motion.button>
           ))}
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, index) => (

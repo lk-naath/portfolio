@@ -5,8 +5,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #e2e8f0;
+  --text-primary: #f0f4ff;
+  --text-secondary: #93c5fd;
+  --text-muted: #60a5fa;
+  --text-accent: #818cf8;
+  --text-gradient-start: #c084fc;
+  --text-gradient-end: #38bdf8;
+  --hover-color: #f472b6;
 }
 
 @theme inline {
@@ -19,13 +26,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #e2e8f0;
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -45,4 +52,64 @@ body {
 /* Ensure smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
+}
+
+/* Global text styles */
+.text-gradient {
+  background: linear-gradient(to right, var(--text-gradient-start), var(--text-gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.text-gradient:hover {
+  background: linear-gradient(to right, var(--hover-color), var(--text-gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-primary {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.text-primary:hover {
+  color: var(--hover-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.text-secondary:hover {
+  color: var(--hover-color);
+}
+
+.text-muted {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.text-muted:hover {
+  color: var(--hover-color);
+}
+
+.text-accent {
+  color: var(--text-accent);
+  transition: color 0.3s ease;
+}
+
+.text-accent:hover {
+  color: var(--hover-color);
+}
+
+/* Interactive elements */
+a, button, [role="button"] {
+  transition: all 0.3s ease;
+}
+
+a:hover, button:hover, [role="button"]:hover {
+  color: var(--hover-color);
 }
