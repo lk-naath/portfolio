@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiCalendar, FiChevronRight, FiAward, FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { FiBriefcase, FiCalendar, FiChevronRight, FiAward, FiChevronDown } from 'react-icons/fi';
 import experienceData from '@/data/experience.json';
-import AnimatedBackground from '@/components/AnimatedBackground';
-import DecorativeCircle from '@/components/DecorativeCircle';
 
 interface Experience {
   title: string;
@@ -64,8 +62,6 @@ const Experience = () => {
 
   return (
     <section id="experience" className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-      <AnimatedBackground />
-
       <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -231,14 +227,6 @@ const Experience = () => {
                       </div>
                     </div>
                   </motion.div>
-                </div>
-
-                {/* Decorative element for the opposite side */}
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12' : 'pr-12'} flex items-center justify-center`}>
-                  <DecorativeCircle
-                    size={128}
-                    delay={index * 0.2}
-                  />
                 </div>
               </motion.div>
             ))}
