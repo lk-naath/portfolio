@@ -13,7 +13,7 @@ export default function Home() {
       <Layout>
         <div className="relative animate-stagger-fade">
           {/* Background gradient animation */}
-          <div className="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900" />
+          <div className="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-50/50 via-white/30 to-purple-50/50 dark:from-gray-900/90 dark:via-gray-800/80 dark:to-gray-900/90" />
 
           {/* Animated sections */}
           <AnimatedSection direction="up">
@@ -31,10 +31,10 @@ export default function Home() {
           {/* Floating elements */}
           <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
             <div
-              className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-200 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+              className="absolute top-1/6 left-1/5 w-64 h-64 bg-indigo-200 dark:bg-indigo-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
             />
             <div
-              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
+              className="absolute bottom-1/3 right-1/6 w-96 h-96 bg-purple-200 dark:bg-purple-900 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
             />
           </div>
         </div>
