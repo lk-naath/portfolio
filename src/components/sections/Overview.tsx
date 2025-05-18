@@ -2,12 +2,18 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiDownload, FiTwitter } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiTwitter, FiCode, FiUsers, FiLayers, FiClock } from 'react-icons/fi';
 import overviewData from '@/data/overview.json';
 
 interface SocialLink {
   icon: React.ReactNode;
   href: string;
+  label: string;
+}
+
+interface StatCard {
+  icon: React.ReactNode;
+  value: string;
   label: string;
 }
 
@@ -35,6 +41,29 @@ const Overview = () => {
     },
   ];
 
+  const stats: StatCard[] = [
+    {
+      icon: <FiClock className="w-6 h-6" />,
+      value: overviewData.stats.yearsOfExperience,
+      label: 'Years Experience',
+    },
+    {
+      icon: <FiCode className="w-6 h-6" />,
+      value: overviewData.stats.projectsCompleted,
+      label: 'Projects Completed',
+    },
+    {
+      icon: <FiLayers className="w-6 h-6" />,
+      value: overviewData.stats.technologies,
+      label: 'Technologies',
+    },
+    {
+      icon: <FiUsers className="w-6 h-6" />,
+      value: overviewData.stats.teamMembersLed,
+      label: 'Team Members Led',
+    },
+  ];
+
   return (
     <section id="overview" className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
       {/* Background gradient effect */}
@@ -47,6 +76,7 @@ const Overview = () => {
         className="w-full max-w-7xl mx-auto px-6 relative z-10"
       >
         <div className="text-center mb-16">
+          {/* Profile Image/Initials */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -61,11 +91,12 @@ const Overview = () => {
             </div>
           </motion.div>
 
+          {/* Name and Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent"
+            className="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent"
           >
             {overviewData.name}
           </motion.h1>
@@ -79,19 +110,57 @@ const Overview = () => {
             {overviewData.title}
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-lg text-white/60 max-w-2xl mx-auto mb-12"
-          >
-            {overviewData.bio}
-          </motion.p>
-
+          {/* Overview and Key Strengths */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="max-w-3xl mx-auto mb-12"
+          >
+            <p className="text-lg text-white/60 mb-8">
+              {overviewData.summary.overview}
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {overviewData.summary.keyStrengths.map((strength, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300"
+                >
+                  <span className="text-white/80">{strength}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                className="p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="text-purple-400 mb-2">{stat.icon}</div>
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-white/60">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             className="flex flex-wrap justify-center gap-4 mb-12"
           >
             {socialLinks.map((link) => (
@@ -110,16 +179,24 @@ const Overview = () => {
             ))}
           </motion.div>
 
-          <motion.a
-            href="/resume.pdf"
-            download
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:opacity-90 transition-opacity duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="flex flex-wrap justify-center gap-4"
           >
-            <FiDownload className="w-5 h-5" />
-            Download Resume
-          </motion.a>
+            <motion.a
+              href={overviewData.quickLinks.resume}
+              download
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 text-white font-medium hover:opacity-90 transition-opacity duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FiDownload className="w-5 h-5" />
+              Download Resume
+            </motion.a>
+          </motion.div>
         </div>
       </motion.div>
     </section>
