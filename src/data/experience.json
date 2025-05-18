@@ -1,28 +1,59 @@
 {
-  "experience": [
-    {
-      "title": "Senior Software Engineer",
-      "company": "Mico",
-      "period": "2023 - Present",
-      "description": "Leading the development of AI-powered solutions and microservices architecture.",
-      "technologies": ["Python", "React", "FastAPI", "PostgreSQL", "Docker"],
+    "summary": {
+      "title": "🚀 Senior Software Engineer | Full Stack Developer | Microservices Architect",
+      "overview": "Passionate software engineer with expertise in building scalable, high-performance applications and leading technical initiatives. Proven track record in system optimization, team leadership, and driving business growth.",
+      "keyStrengths": [
+        "🎯 System Architecture & Optimization",
+        "🚀 Performance Engineering",
+        "👥 Team Leadership & Mentoring",
+        "🔄 CI/CD & DevOps",
+        "🔒 Security & Authentication",
+        "🌐 API Integration & Development"
+      ],
+      "technicalExpertise": {
+        "languages": ["Python", "JavaScript", "TypeScript"],
+        "frontend": ["React", "NextJS"],
+        "backend": ["GraphQL", "GraphQL-over-WS", "Celery"],
+        "databases": ["Elasticsearch", "PostgreSQL"],
+        "devops": ["Docker", "GitLab CI/CD"],
+        "apis": ["Google APIs", "Microsoft 365", "Facebook APIs"]
+      },
       "achievements": [
-        "Architected and implemented microservices-based authentication system",
-        "Developed AI-powered personal assistant with natural language processing",
-        "Led team of 5 developers in implementing CI/CD pipelines"
+        "📈 Scaled user base from 100 to 10,000+ with optimized microservices architecture",
+        "⚡ Achieved 200% performance improvement through distributed caching",
+        "🔍 Enhanced search capabilities with 80% performance boost using Elasticsearch",
+        "🔄 Implemented event-driven systems with 200% faster processing",
+        "👥 Led and grew offshore team from 0 to 10+ members",
+        "🔐 Pioneered secure SSO implementation with Google and Microsoft"
       ]
     },
-    {
-      "title": "Software Engineer",
-      "company": "Previous Company",
-      "period": "2021 - 2023",
-      "description": "Full-stack development of web applications and RESTful APIs.",
-      "technologies": ["Node.js", "React", "MongoDB", "AWS"],
-      "achievements": [
-        "Built scalable RESTful APIs serving 1M+ requests daily",
-        "Implemented real-time features using WebSocket",
-        "Reduced API response time by 40% through optimization"
-      ]
-    }
-  ]
-}
+    "experience": [
+      {
+        "title": "Software Engineer - Consultant",
+        "company": "Target Integration",
+        "period": "Aug 2022 - Present",
+        "description": "Leading technical initiatives and overseeing offshore team development while implementing scalable solutions.",
+        "technologies": [
+          "Python",
+          "React",
+          "NextJS",
+          "GraphQL",
+          "GraphQL-over-WS",
+          "Docker",
+          "Elasticsearch",
+          "Celery",
+          "GitLab CI/CD"
+        ],
+        "achievements": [
+          "Spearheaded technical initiatives to resolve release blockers and optimize CI/CD pipelines for 8+ microservices",
+          "Oversaw the growth of an offshore team from 0 to 10+ members",
+          "Engineered an Event-driven Celery task system, achieving 200% faster processing",
+          "Pioneered enterprise search architecture with Elasticsearch, achieving 80% performance improvement",
+          "Designed distributed caching architecture, maximizing system throughput by 200%",
+          "Implemented SSO with Google and Microsoft, enabling secure third-party authentication",
+          "Successfully migrated to GraphQL-over-WS, reducing latency and enabling bidirectional communication",
+          "Instrumental in company growth, with user numbers jumping from 100 to over 10,000"
+        ]
+      }
+    ]
+  }
