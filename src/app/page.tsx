@@ -29,9 +29,9 @@ export default function Home() {
             <Experience />
           </AnimatedSection>
 
-          <AnimatedSection direction="up">
+          {/* <AnimatedSection direction="up">
             <Projects />
-          </AnimatedSection>
+          </AnimatedSection> */}
 
           {/* Floating elements */}
           <div className="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
