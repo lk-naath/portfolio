@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiBriefcase, FiCalendar, FiChevronRight, FiAward, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import experienceData from '@/data/experience.json';
+import AnimatedBackground from '@/components/AnimatedBackground';
+import DecorativeCircle from '@/components/DecorativeCircle';
 
 interface Experience {
   title: string;
@@ -62,11 +64,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="min-h-screen w-full py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-500/10 via-transparent to-transparent" />
-      </div>
+      <AnimatedBackground />
 
       <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -233,6 +231,14 @@ const Experience = () => {
                       </div>
                     </div>
                   </motion.div>
+                </div>
+
+                {/* Decorative element for the opposite side */}
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12' : 'pr-12'} flex items-center justify-center`}>
+                  <DecorativeCircle
+                    size={128}
+                    delay={index * 0.2}
+                  />
                 </div>
               </motion.div>
             ))}
