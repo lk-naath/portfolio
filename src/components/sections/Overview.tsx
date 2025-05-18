@@ -105,7 +105,7 @@ const Overview = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-2xl text-white/80 mb-8"
+            className="text-2xl text-accent mb-8"
           >
             {overviewData.title}
           </motion.h2>
@@ -117,7 +117,7 @@ const Overview = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="max-w-3xl mx-auto mb-12"
           >
-            <p className="text-lg text-white/60 mb-8">
+            <p className="text-lg text-secondary mb-8">
               {overviewData.summary.overview}
             </p>
 
@@ -130,7 +130,7 @@ const Overview = () => {
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                   className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300"
                 >
-                  <span className="text-white/80">{strength}</span>
+                  <span className="text-accent">{strength}</span>
                 </motion.div>
               ))}
             </div>
@@ -149,9 +149,9 @@ const Overview = () => {
                 whileHover={{ scale: 1.05 }}
                 className="p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-purple-400 mb-2">{stat.icon}</div>
-                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-white/60">{stat.label}</div>
+                <div className="text-accent mb-2">{stat.icon}</div>
+                <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-secondary">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -169,7 +169,7 @@ const Overview = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 text-white/80 hover:bg-white/10 transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 text-accent hover:bg-white/10 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
