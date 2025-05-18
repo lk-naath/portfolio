@@ -1,8 +1,8 @@
 {
   "name": "Lekhnath Parajuli",
-  "title": "Senior Software | Microservices Architect",
+  "title": "Senior Software | Software Architect",
   "summary": {
-    "overview": "Passionate software engineer with expertise in building scalable, high-performance applications and leading technical initiatives. Proven track record in system optimization, team leadership, and driving business growth.",
+    "overview": "Passionate software engineer innovating with AI-powered systems and agents to build scalable, intelligent solutions that drive performance, efficiency, and business growth.",
     "keyStrengths": [
       "System Architecture & Optimization",
       "Performance Engineering",
@@ -13,13 +13,12 @@
     ]
   },
   "contact": {
-    "email": "your.email@example.com",
-    "github": "https://github.com/yourusername",
-    "linkedin": "https://linkedin.com/in/yourusername",
+    "email": "lk.naath@gmail.com",
+    "github": "https://github.com/lk-naath/",
+    "linkedin": "https://www.linkedin.com/in/lekhnath-parajuli/",
     "twitter": "https://twitter.com/yourusername"
   },
-  "location": "Your Location",
-  "bio": "I'm a software engineer with a passion for building innovative solutions. With expertise in both frontend and backend development, I specialize in creating scalable applications that solve real-world problems. My current focus is on AI-powered applications and microservices architecture.",
+  "location": "Kathmandu, Nepal",
   "stats": {
     "yearsOfExperience": "3+",
     "projectsCompleted": "20+",

@@ -29,11 +29,11 @@ const Overview = () => {
       href: overviewData.contact.linkedin,
       label: 'LinkedIn',
     },
-    {
-      icon: <FiTwitter className="w-6 h-6" />,
-      href: overviewData.contact.twitter,
-      label: 'Twitter',
-    },
+    // {
+    //   icon: <FiTwitter className="w-6 h-6" />,
+    //   href: overviewData.contact.twitter,
+    //   label: 'Twitter',
+    // },
     {
       icon: <FiMail className="w-6 h-6" />,
       href: `mailto:${overviewData.contact.email}`,
