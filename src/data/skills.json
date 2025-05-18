@@ -1,75 +1,117 @@
 {
-  "categories": {
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "database": "Database",
-    "devops": "DevOps",
-    "tools": "Tools"
-  },
-  "range": 5,
-  "skills": [
-    {
-      "name": "React",
-      "years": 4,
-      "category": "frontend",
-      "color": "#61DAFB",
-      "description": "Expert in React ecosystem including hooks, context, and performance optimization"
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "devops": "DevOps",
+      "tools": "Tools"
     },
-    {
-      "name": "TypeScript",
-      "years": 3,
-      "category": "frontend",
-      "color": "#3178C6",
-      "description": "Strong typing and advanced TypeScript features for robust applications"
-    },
-    {
-      "name": "Node.js",
-      "years": 3,
-      "category": "backend",
-      "color": "#339933",
-      "description": "Proficient in building scalable backend services and RESTful APIs"
-    },
-    {
-      "name": "PostgreSQL",
-      "years": 2.5,
-      "category": "database",
-      "color": "#336791",
-      "description": "Experience in database design, optimization, and complex queries"
-    },
-    {
-      "name": "Docker",
-      "years": 2.5,
-      "category": "devops",
-      "color": "#2496ED",
-      "description": "Containerization and microservices architecture implementation"
-    },
-    {
-      "name": "AWS",
-      "years": 2,
-      "category": "devops",
-      "color": "#FF9900",
-      "description": "Cloud infrastructure and services deployment"
-    },
-    {
-      "name": "Git",
-      "years": 4,
-      "category": "tools",
-      "color": "#F05032",
-      "description": "Advanced version control and collaboration workflows"
-    },
-    {
-      "name": "Next.js",
-      "years": 3,
-      "category": "frontend",
-      "color": "#000000",
-      "description": "Full-stack React framework for production applications"
-    },
-    {
-      "name": "MongoDB",
-      "years": 2.5,
-      "category": "database",
-      "color": "#47A248",
-      "description": "NoSQL database design and optimization"
-    }
-  ]
-}
+    "range": 3,
+    "skills": [
+      {
+        "name": "Git",
+        "years": 3,
+        "category": "tools",
+        "color": "#F05032",
+        "description": "Advanced version control and collaboration workflows"
+      },
+      {
+        "name": "Python",
+        "years": 3,
+        "category": "backend",
+        "color": "#3776AB",
+        "description": "Proficient in building scalable APIs and backend systems using Python frameworks"
+      },
+      {
+        "name": "Linux",
+        "years": 3,
+        "category": "tools",
+        "color": "#FCC624",
+        "description": "Efficient at using Linux systems for development, deployment, and debugging"
+      },
+      {
+        "name": "Docker",
+        "years": 3,
+        "category": "devops",
+        "color": "#2496ED",
+        "description": "Containerization and orchestration of applications in microservices architecture"
+      },
+      {
+        "name": "PostgreSQL",
+        "years": 3,
+        "category": "database",
+        "color": "#336791",
+        "description": "Strong grasp of relational data modeling, performance tuning, and SQL optimization"
+      },
+      {
+        "name": "Elasticsearch",
+        "years": 3,
+        "category": "database",
+        "color": "#005571",
+        "description": "Experience in building search capabilities and managing large-scale indexes"
+      },
+      {
+        "name": "GraphQL",
+        "years": 3,
+        "category": "backend",
+        "color": "#E10098",
+        "description": "API design and implementation using GraphQL for efficient data fetching"
+      },
+      {
+        "name": "TypeScript",
+        "years": 2,
+        "category": "frontend",
+        "color": "#3178C6",
+        "description": "Robust typing, interfaces, and code quality in modern frontend development"
+      },
+      {
+        "name": "JavaScript",
+        "years": 1,
+        "category": "frontend",
+        "color": "#F7DF1E",
+        "description": "Core language proficiency with modern ES6+ standards and async programming"
+      },
+      {
+        "name": "Redis",
+        "years": 3,
+        "category": "database",
+        "color": "#DC382D",
+        "description": "In-memory data structure store for caching and fast data operations"
+      },
+      {
+        "name": "OAuth",
+        "years": 3,
+        "category": "tools",
+        "color": "#2C6FBB",
+        "description": "Secure authentication and authorization flows using OAuth2 standards"
+      },
+      {
+        "name": "WebSocket",
+        "years": 3,
+        "category": "backend",
+        "color": "#8952CC",
+        "description": "Real-time communication protocols for interactive applications"
+      },
+      {
+        "name": "Microservices",
+        "years": 3,
+        "category": "backend",
+        "color": "#FF6F00",
+        "description": "Design, development, and orchestration of distributed microservice architectures"
+      },
+      {
+        "name": "React",
+        "years": 2,
+        "category": "frontend",
+        "color": "#61DAFB",
+        "description": "Component-based architecture, hooks, and performance optimization in React"
+      },
+      {
+        "name": "Next.js",
+        "years": 2,
+        "category": "frontend",
+        "color": "#000000",
+        "description": "React-based framework with SSR, API routes, and optimized static generation"
+      }
+    ]
+  }
